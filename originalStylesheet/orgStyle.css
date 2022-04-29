@@ -6,11 +6,78 @@ a.navbar-brand{
     font-size: 32px;
 }
 
-footer.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 50px;
-    background-color: #f5f5f5;
+p{
+  line-height: 2;
+  font-size: 20px;
+}
+.wrapper{
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+.footer {
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  }
+
+a.btn btn-lg btn-primary{
+    white-space: nowrap;
+}
+a.btn btn-lg btn-secondary{
+    white-space: nowrap;
+}
+
+.explanatory{
+  margin-left: auto;
+}
+
+h2 {
+  margin-top: 30px ;
+  padding: 10px;
+  border-left: 0.3rem solid #2bceff;
+}
+
+/*----------------------------------------------------------------------------
+Unity-webgl 比率
+----------------------------------------------------------------------------*/
+
+#unity-webgl{
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+#unity-webgl{
+	/* 16:9 */
+	width: 1136px ;/*デフォルトの横幅*/
+	height: 640px ;/*デフォルトの縦幅*/
+}
+@media screen and (max-width: 1240px){/*1240px以下*/
+	#unity-webgl{
+		width: 1136px ;
+		height: 640px ;
+	}
+}
+@media screen and (max-width: 1023px){/*1023px以下*/
+	#unity-webgl{
+		width: 896px ;
+		height: 504px ;
+	}
+}
+@media screen and (max-width: 834px){/*834px以下*/
+	#unity-webgl{
+		width: 480px ;
+		height: 270px ;
+	}
+}
+@media screen and (max-width: 480px){/*480px以下*/
+	#unity-webgl{
+		width: 400px ;
+		height: 225px ;
+	}
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | typing with two Online</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/ver1.111.json", { onProgress: UnityProgress });
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    //キャンバスのサイズ
+    function reCanvasSize() {
+      wsize = $(window).width();
+      hsize = $(window).height();
+      $('canvas').attr('width', wsize);
+      $('canvas').attr('height', hsize);
+    }
+
+    $(document).ready(function () {
+      reCanvasSize();
+    });
+    $(window).resize(function () {
+      reCanvasSize();
+    });
+  </script>
+</head>
+
+<body style="
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #EEEEEE;
+  ">
+  <div class="webgl-content">
+    <div id="unityContainer">
+      <canvas id="unity-canvas" style="
+          position: relative;
+          width: 100%;
+          height: 100%;
+        "></canvas>
+      <div class="logo Dark" style="display: none;"></div>
+      <div class="progress Dark" style="display: none;">
+        <div class="empty" style="width: 0%;"></div>
+        <div class="full" style="width: 100%;"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
