@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans+JP:wght@700&display=swap');
 
+body{
+  background-color: rgb(242, 242, 242);
+}
+
 a.navbar-brand{
     color: #ffffff;
     font-family: 'Mochiy Pop One', sans-serif;
@@ -21,8 +25,8 @@ p{
   bottom: 0; /*下に固定*/
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+  height: 100px;
+  background-color: #e7e7e7;
   }
 
 a.btn btn-lg btn-primary{
@@ -36,11 +40,28 @@ a.btn btn-lg btn-secondary{
   margin-left: auto;
 }
 
+
+h1{
+  margin-top: 40px ;
+  padding: 10px;
+  border-left: 0.6rem solid #2b99ff;
+}
+
 h2 {
   margin-top: 30px ;
-  padding: 10px;
-  border-left: 0.3rem solid #2bceff;
+  padding: 8px;
+  font-size: 30px;
+  border-left: 0.3rem solid #2b99ff;
 }
+
+
+h3 {
+  margin-top: 15px ;
+  padding: 5px;
+  font-size: 20px;
+  border-left: 0.3rem solid #2b99ff;
+}
+
 
 /*----------------------------------------------------------------------------
 Unity-webgl 比率
