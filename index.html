@@ -24,29 +24,19 @@
   <!-- ロードしたらiframeにfocusする -->
   <script>
     const gameIframeId = "unity-webgl";
-
+    
     function onGameFocus() {
       var gameIframe = document.getElementById(gameIframeId);
       gameIframe.contentWindow.focus();
     }
-    
+
     //iframeの内容が完全に読み込まれたら
     $(window).on("load", function (e) {
       onGameFocus();
-      //iframeにはタッチやクリックイベントは発行されないためこういう記述
-      $(gameIframeId).contents().find("body").on("touchstart", function (e) {
-        onGameFocus();
-      });
-    });
-    /*
-    window.onload = function() {
-    var gameIframe = document.getElementById("unity-webgl");
-      gameIframe.contentWindow.focus();
-
-      gameIframe.onblur=function() {
-        gameIframe.contentWindow.focus();
+      document.body.onclick = function ( event ) {
+        onGameFocus()
       }
-    } */
+    });
   </script>
 
   <link rel="icon" href="favicon.ico">
