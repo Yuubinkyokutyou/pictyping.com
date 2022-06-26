@@ -78,6 +78,12 @@ Unity-webgl 比率
 	width: 1136px ;/*デフォルトの横幅*/
 	height: 640px ;/*デフォルトの縦幅*/
 }
+@media screen and (max-width: 480px){/*480px以上*/
+	#unity-webgl{
+		width: 384px ;
+		height: 216px ;
+	}
+}
 @media screen and (min-width: 480px){/*480px以上*/
 	#unity-webgl{
 		width: 400px ;
