@@ -108,3 +108,9 @@ Unity-webgl 比率
 		height: 216px ;
 	}
 }
+@media screen and (max-width: 405px){/*480px以上*/
+	#unity-webgl{
+		width: 256px ;
+		height: 144px ;
+	}
+}
