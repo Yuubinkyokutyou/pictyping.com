@@ -41,21 +41,21 @@
     //エラーログ収集
     window.onerror = function (msg, url, lineNo, columnNo, error) {
       var endpoint = 'https://script.google.com/macros/s/AKfycbwnLWIJKsXuTj6LUxCFDUjjnFNkY7b2tz1X9mk7M5G_T-hoG9s6mxO0NWfdNhkIqKTKJg/exec'; // Web api endpoint
-      var json = JSON.stringify({
-        'Message: ': msg,
-        'URL: ': url,
-        'Line: ': lineNo,
-        'Column: ': columnNo,
-        'Error object: ': JSON.stringify(error),
-        'OS' :window.navigator.userAgent.toLowerCase(),
-        'browser': window.navigator.userAgent.toLowerCase()
-      });
+      var json = {
+        "Message": msg,
+        "URL": url,
+        "Line": lineNo,
+        "Column": columnNo,
+        "Error object": JSON.stringify(error),
+        "OS" :window.navigator.userAgent.toLowerCase(),
+        "browser": window.navigator.userAgent.toLowerCase()
+      };
       
 
       fetch(endpoint, {
         method: 'POST',
         mode: 'no-cors',
-        body: json,
+        body: JSON.stringify(json),
         headers: new Headers({ "Content-type": "application/json" })
       });
 
