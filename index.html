@@ -24,7 +24,7 @@
   <!-- ロードしたらiframeにfocusする -->
   <script>
     const gameIframeId = "unity-webgl";
-    
+
     function onGameFocus() {
       var gameIframe = document.getElementById(gameIframeId);
       gameIframe.contentWindow.focus();
@@ -33,10 +33,32 @@
     //iframeの内容が完全に読み込まれたら
     $(window).on("load", function (e) {
       onGameFocus();
-      document.body.onclick = function ( event ) {
+      document.body.onclick = function (event) {
         onGameFocus()
       }
     });
+
+    //エラーログ収集
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+      var endpoint = 'https://script.google.com/macros/s/AKfycbwnLWIJKsXuTj6LUxCFDUjjnFNkY7b2tz1X9mk7M5G_T-hoG9s6mxO0NWfdNhkIqKTKJg/exec'; // Web api endpoint
+      var json = JSON.stringify({
+        'Message: ': msg,
+        'URL: ': url,
+        'Line: ': lineNo,
+        'Column: ': columnNo,
+        'Error object: ': JSON.stringify(error)
+      });
+      
+
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: json,
+        headers: new Headers({ "Content-type": "application/json" })
+      });
+
+      return false;
+    };
   </script>
 
   <link rel="icon" href="favicon.ico">
@@ -80,8 +102,10 @@
           <section>
             <strong>Chromebookの場合</strong>
             <p>Ctrl + 虫眼鏡のマーク +
-            <img src="/icons/ChromeScreenShotButtonIcon.png" width="32" height="18" alt="" data-mime-type="image/png" data-alt-src="//lh3.googleusercontent.com/HJ6vrM4LzE0dCD4yI0o-sqjRDLbfUaatcjqlUCflVr3zDKnCMgE5tGLY-b53jknSyQAD">
-            を同時に押してページを更新してください</p>
+              <img src="/icons/ChromeScreenShotButtonIcon.png" width="32" height="18" alt="" data-mime-type="image/png"
+                data-alt-src="//lh3.googleusercontent.com/HJ6vrM4LzE0dCD4yI0o-sqjRDLbfUaatcjqlUCflVr3zDKnCMgE5tGLY-b53jknSyQAD">
+              を同時に押してページを更新してください
+            </p>
             <strong>Windowsの場合</strong>
             <p>Ctrl + F5 を同時に押してページを更新してください</p>
           </section>
